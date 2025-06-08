@@ -1,0 +1,142 @@
+{% include 'head.html' %}
+{% block head %}
+{% endblock %}
+
+
+<!-- the code of project code  -->
+    <header>
+        <h1>My Portfolio</h1>
+        <p>Python | Django | Flask | Designer | Programmer | MY SQL | Front-end Developer </p>
+    </header>
+
+    <section class="project">
+        <h2>Projects</h2>
+
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='assets/project1.png') }}" width="500px" alt="Project 1">
+            <img src="{{ url_for('static', filename='assets/project2.png') }}" width="500px" alt="Project 1">
+
+            <h3>tourism website</h3>
+            <p>"Fort Visitor" is a tourism website dedicated to showcasing the rich heritage of Rajasthan's forts.technologies use like HTML, CSS.</p>
+            <button onclick="viewProject('project1')">View Details</button>
+        </div>
+
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='assets/project3.png') }}" width="500px" alt="Project 1">
+            <h3>Currency Converter</h3>
+            <p>The Currency Converter is a Python application that allows users to easily convert amounts between different currencies.</p>
+            <button onclick="viewProject('project2')">View Details</button>
+        </div>
+
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='assets/project4.png') }}" width="500px" alt="Project 4">
+            <img src="{{ url_for('static', filename='assets/project5.png') }}" width="500px" alt="Project 4">
+            <img src="{{ url_for('static', filename='assets/project6.png') }}" width="500px" alt="Project 4">
+            <img src="{{ url_for('static', filename='assets/project7.png') }}" width="500px" alt="Project 4">
+            <h3>Heritage Rajputi Poshak Shopping Website</h3>
+            <p>This shopping website is dedicated to selling heritage Rajputi Poshak (women's wear). Built using Flask and Python</p>
+            <button onclick="viewProject('project3')">View Details</button>
+        </div>
+
+        <div class="project-card">
+            <img src="{{ url_for('static', filename='assets/project8.png') }}" width="500px" alt="Project 5">
+            <img src="{{ url_for('static', filename='assets/project9.png') }}" width="500px" alt="Project 5">
+            <img src="{{ url_for('static', filename='assets/project10.png') }}" width="500px" alt="Project 5">
+            <img src="{{ url_for('static', filename='assets/project11.png') }}" width="500px" alt="Project 5">
+            <h3>Restaurants website using HTML,CSS,JS</h3>
+            <p> </p>
+            <button onclick="viewProject('project4')">View Details</button>
+        </div>
+
+    </section>
+
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+    
+    <script>
+        function viewProject(projectId) {
+            const modal = document.getElementById("projectModal");
+            const modalTitle = document.getElementById("modalTitle");
+            const modalDescription = document.getElementById("modalDescription");
+    
+            // Reset modal description for new content
+            modalDescription.innerHTML = "";
+    
+            if (projectId === 'project1') {
+                modalTitle.innerText = "Project Name: Fort Visitor";
+                
+                // Set description
+                modalDescription.innerHTML = "<strong>Description:</strong><br>"; 
+                modalDescription.innerHTML += "Fort Visitor is a tourism website dedicated to showcasing the rich heritage of Rajasthan's forts. The website provides detailed information about various forts in Rajasthan, including historical significance, architectural details, and visitor information. The project includes a unique feature where users can choose from three customizable travel packages — low, medium, and high — to plan their visit to these majestic forts. The website is built using HTML and CSS, offering a user-friendly experience with an attractive layout that highlights the beauty and history of Rajasthan.<br><br>";
+                
+                // Add Key Features
+                modalDescription.innerHTML += "<strong>Key Features:</strong><br>";
+                modalDescription.innerHTML += "• Fort details and descriptions<br>";
+                modalDescription.innerHTML += "• Customizable travel packages (Low, Medium, High)<br>";
+                modalDescription.innerHTML += "• Responsive design with HTML and CSS<br><br>";
+            
+                // Add Technologies
+                modalDescription.innerHTML += "<strong>Technologies:</strong> HTML, CSS";
+                
+            } else if (projectId === 'project3') {
+                modalTitle.innerText = "Heritage Rajputi Poshak Shopping Website";
+                modalDescription.innerHTML = "description : This shopping website is dedicated to selling heritage Rajputi Poshak (women's wear). Built using Flask and Python, the website features a fully functional user authentication system with login and sign-up pages connected to an SQL database. The project integrates Jinja templating syntax for dynamic content rendering, and the design was initially based on Bootstrap, which was then customized and enhanced. The website offers a user-friendly shopping experience with smooth navigation and secure data handling.<br>";
+                modalDescription.innerHTML += "<strong>Key Features:</strong><br>"
+                modalDescription.innerHTML += "• User authentication with login and sign-up functionality connected to an SQL database.<br>"
+                modalDescription.innerHTML += "• Jinja templating for rendering dynamic content.<br>"
+                modalDescription.innerHTML += "• Responsive and customized Bootstrap-based design.<br>";
+                modalDescription.innerHTML += "<strong>• Technologies Used:</strong><br>"
+                modalDescription.innerHTML += "• Flask, Python, SQL, Bootstrap, Jinja"
+                
+            }
+            else if (projectId === 'project4') {
+                modalTitle.innerText = "Restaurants website";
+                modalDescription.innerText = "This restaurant website provides a complete online experience for customers, featuring a cart system where users can add selected items and see the total price calculated in real-time. The front page includes a basic description of the restaurant, highlighting its offerings and atmosphere. Built using HTML, CSS, and JavaScript, the website includes a fully functional navigation bar, ensuring smooth navigation across all sections of the site. The cart functionality is implemented using JavaScript, providing an intuitive shopping experience for users.<br>";
+                modalDescription.innerHTML += "<strong>Key Feature :<strong><br>"
+                modalDescription.innerHTML += "• Dynamic cart functionality that adds products and calculates total price using JavaScript..<br>"
+                modalDescription.innerHTML += "• Fully functional and responsive navigation bar..<br>"
+                modalDescription.innerHTML += "• Basic description of the restaurant on the home page..<br>";
+                modalDescription.innerHTML += "<strong>• Technologies Used:</strong><br>"
+                modalDescription.innerHTML += "HTML, CSS, JavaScript"
+            }
+            else if (projectId === 'project2') {
+                modalTitle.innerText = "Currency Converter";
+                modalDescription.innerHTML = "<strong>Description :</strong><br>";
+
+                modalDescription.innerHTML += "The Currency Converter is a Python application that allows users to easily convert amounts between different currencies. The project is designed to handle various global currencies, providing real-time conversion rates to ensure accuracy. Users can select the source currency, the target currency, and input the amount they wish to convert. The application then computes the equivalent value in the target currency, offering a user-friendly interface and efficient functionality.<br>"
+                modalDescription.innerHTML += "<strong>Key Features:</strong><br>"
+                modalDescription.innerHTML += "• Supports multiple currencies for conversion.<br>";
+                modalDescription.innerHTML += "• Real-time currency conversion rates.<br>";
+                modalDescription.innerHTML += "• Built using Python,Api making it easy to modify and extend.<br>";
+                modalDescription.innerHTML += "• Simple and intuitive user interface.<br><br>";
+                modalDescription.innerHTML += "• Technologies Used:"
+                modalDescription.innerHTML += "• python,Api"
+
+            }
+    
+            // Show the modal
+            modal.style.display = "block";
+        }
+    
+        // Close the modal when clicking on the close button
+        document.querySelector(".close").onclick = function() {
+            document.getElementById("projectModal").style.display = "none";
+        }
+    
+        // Close the modal when clicking outside of it
+        window.onclick = function(event) {
+            const modal = document.getElementById("projectModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+{% include 'footer.html' %}
+{% block foot %}
+{% endblock %}
